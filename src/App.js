@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import AudioPlayer from "./components/AudioPlayer";
+import Playlist from "./components/Playlist";
 
 function App() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const audioFiles = ["audio1.mp3", "audio2.mp3"];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AudioPlayer audioFiles={audioFiles} currentIndex={currentIndex} />
+      <Playlist audioFiles={audioFiles} currentIndex={currentIndex} />
     </div>
   );
 }
